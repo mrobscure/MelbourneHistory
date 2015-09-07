@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POICatalogue>
+  <POI>
+    <DisplayName>Melbourne Town Hall</DisplayName>
+    <ListDesc>A must see for architecture fans</ListDesc>
+    <Icon>townhall_icon</Icon>
+    <ListLogo>townhall_logo</ListLogo>
+    <Html>townhall_html</Html>
+    <Coord lon="144.9667106" lat="-37.8150496"/>
+  </POI>
+  <POI>
+    <DisplayName>Royal Exhibition Building</DisplayName>
+    <ListDesc>Used for the world fair of 1880</ListDesc>
+    <Icon>rylexbldg_icon</Icon>
+    <ListLogo>rylexbldg_logo</ListLogo>
+    <Html>rylexbldg_html</Html>
+    <Coord lon="144.972271" lat="-37.804843"/>
+  </POI>
+  <POI>
+    <DisplayName>Queen Victoria Market</DisplayName>
+    <ListDesc>Home to fresh food and clothes</ListDesc>
+    <Icon>vicmarket_icon</Icon>
+    <ListLogo>vicmarket_logo</ListLogo>
+    <Html>vicmarket_html</Html>
+    <Coord lon="144.956950" lat="-37.809181"/>
+  </POI>
+  <POI>
+    <DisplayName>St Patricks Cathedral</DisplayName>
+    <ListDesc>One of the largest churches in Australia</ListDesc>
+    <Icon>stpats_icon</Icon>
+    <ListLogo>stpats_logo</ListLogo>
+    <Html>stpats_html</Html>
+    <Coord lon="144.976368" lat="-37.810374"/>
+  </POI>
+  <POI>
+    <DisplayName>Flinders St Station</DisplayName>
+    <ListDesc>A world renowned railway station icon</ListDesc>
+    <Icon>flindersst_icon</Icon>
+    <ListLogo>flindersst_logo</ListLogo>
+    <Html>flindersst_html</Html>
+    <Coord lon="144.9676667" lat="-37.818235"/>
+  </POI>
+</POICatalogue>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">"History of Melbourne"</string>
+    <string name="title_activity_maps"> Map</string>
+    <string name="title_activity_poilist"> List</string>
+    <string name="title_activity_welcome">Welcome</string>
+    <string name="viewmap">View by Map</string>
+    <string name="viewlist">View by List</string>
+    <string name="action_home">Home View</string>
+    <string name="action_list">List View</string>
+    <string name="action_info">Credits</string>
+    <string name="action_test1">Navigate</string>
+    <string name="action_myloc">My Location</string>
+    <string name="POIExpand">View</string>
+    <string name="POINav">Navigate</string>
+    <string name="title_activity_credit">Click to return</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_credits">Credits</string>
+    <string name="ListPOICollapse">Back</string>
+    <string name="icon">Icon</string>
+</resources>

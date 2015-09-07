@@ -1,0 +1,112 @@
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- SLIDE BASE -->
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoOverlay="true"
+        sothree:umanoPanelHeight="75dp"
+        sothree:umanoParalaxOffset="50dp"
+        sothree:umanoShadowHeight="4dp"
+        sothree:umanoInitialState="hidden"
+        >
+
+        <!-- MAIN CONTENT -->
+        <RelativeLayout
+            android:gravity="top"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <!-- MAP FRAGMENT -->
+            <fragment
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/map"
+                tools:context=".MapsActivity"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+            />
+        </RelativeLayout>
+
+        <!-- SLIDING LAYOUT -->
+        <LinearLayout
+            android:id="@+id/dragView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:clickable="true"
+            android:focusable="false"
+            android:orientation="vertical">
+
+            <!-- SLIDING TITLE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/material_blue_grey_900">
+
+                <TextView
+                    android:id="@+id/buttonExpand"
+                    android:layout_width="60dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="7dp"
+                    android:drawableTop="@drawable/ic_place_white_24dp"
+                    android:textSize="12sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/POIExpand" />
+
+                <TextView
+                    android:id="@+id/POITitleTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="75dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@color/material_blue_grey_900"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/buttonNav"
+                    android:layout_width="60dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingRight="9dp"
+                    android:drawableTop="@drawable/ic_navigation_white_24dp"
+                    android:textSize="12sp"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    android:text="@string/POINav" />
+
+            </LinearLayout>
+
+            <!-- SLIDING CONTENT -->
+            <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/main_scroll"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="false"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <TextView
+                    android:id="@+id/main_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                />
+            </ScrollView>
+
+        </LinearLayout>
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+</RelativeLayout>

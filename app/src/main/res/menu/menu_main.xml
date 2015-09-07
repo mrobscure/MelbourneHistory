@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_home"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="@string/action_home"
+        android:showAsAction="always"/>
+
+    <item android:id="@+id/action_myloc"
+        android:icon="@drawable/ic_my_location_white_24dp"
+        android:title="@string/action_myloc"
+        android:showAsAction="always"  />
+
+    <item android:id="@+id/action_info"
+        android:icon="@drawable/ic_info_white_24dp"
+        android:title="@string/action_info"
+        android:showAsAction="always"  />
+
+</menu>
