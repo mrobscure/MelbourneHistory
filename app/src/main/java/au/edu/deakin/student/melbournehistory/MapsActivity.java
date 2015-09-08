@@ -1,8 +1,12 @@
 package au.edu.deakin.student.melbournehistory;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.IntentSender;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -11,8 +15,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.TextView;
@@ -63,14 +65,14 @@ public class MapsActivity extends FragmentActivity
     private Location myLocation;
     private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
     private LocationRequest mLocationRequest;
-
     private SlidingUpPanelLayout slidingLayout;
     private boolean POI_hintForView = true;
     private boolean POI_hintForBack = true;
     private int POIViewed = 0;
     Marker currentMarker;
+    private Toast WelcomeToast;
     private SlidingUpPanelLayout mLayout;
-
+    boolean LocationServicesEnabled = false;
     private static final String POI_LISTFILE = "poi_rootlist";
 
 
@@ -96,7 +98,7 @@ public class MapsActivity extends FragmentActivity
         mLocationRequest = LocationRequest.create()
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(10 * 1000)        // 10 seconds, in milliseconds
-                .setFastestInterval(1 * 1000); // 1 second, in milliseconds
+                .setFastestInterval(1000); // 1 second, in milliseconds
 
         //load and display POIs
         prepare_POI();
@@ -169,8 +171,6 @@ public class MapsActivity extends FragmentActivity
     //actionbar activity
     public void showInfo() {
         startActivity(new Intent(this, CreditActivity.class));
-
-        //Toast.makeText(getApplicationContext(), "TBC: Credits", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -231,9 +231,9 @@ public class MapsActivity extends FragmentActivity
         });
 
         //provide a how to Toast on map first show
-        Toast toast = Toast.makeText(getApplicationContext(), "Touch Point of Interest marker to view", Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
+        WelcomeToast = Toast.makeText(getApplicationContext(), "Touch Point of Interest marker to view", Toast.LENGTH_LONG);
+        WelcomeToast.setGravity(Gravity.CENTER, 0, 0);
+        WelcomeToast.show();
     }
 
     //maps - navigate to central map location over Melbourne CBD
@@ -282,7 +282,7 @@ public class MapsActivity extends FragmentActivity
         POIViewed = 0;
 
         //Show a guide Toast to indicate to user to touch the title to view POI
-        if (POI_hintForView == true) {
+        if (POI_hintForView) {
             POI_hintForView = false;
             Context context = getApplicationContext();
             CharSequence text = "Click 'View' button to display";
@@ -305,13 +305,51 @@ public class MapsActivity extends FragmentActivity
 
     @Override
     public void onConnected(Bundle connectionHint) {
-        myLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if (myLocation == null) {
-            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);        }
-        else {
-            handleNewLocation(myLocation);
+
+        if (!LocationServicesEnabled)
+        {
+            if (LSStatusCheck()) {
+                myLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                if (myLocation == null) {
+                    LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+                } else {
+                    handleNewLocation(myLocation);
+                }
+                Log.i(TAG, "Location services connected.");
+            }
         }
-        Log.i(TAG, "Location services connected.");
+    }
+
+    public boolean LSStatusCheck()
+    {
+        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+            buildAlertMessageNoGps();
+            return false;
+        }
+        else {
+            LocationServicesEnabled = true;
+            return true;
+        }
+    }
+
+    private void buildAlertMessageNoGps() {
+        WelcomeToast.cancel();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog,  final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, final int id) {
+                        dialog.cancel();
+                    }
+                });
+        final AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override
@@ -346,35 +384,43 @@ public class MapsActivity extends FragmentActivity
 
     public void navigateCurrentLocation()
     {
-        Marker marker;
-        double currentLatitude = myLocation.getLatitude();
-        double currentLongitude = myLocation.getLongitude();
-        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+        if (LocationServicesEnabled) {
+            Marker marker;
+            double currentLatitude = myLocation.getLatitude();
+            double currentLongitude = myLocation.getLongitude();
+            LatLng latLng = new LatLng(currentLatitude, currentLongitude);
 
-        MarkerOptions options = new MarkerOptions()
-                .position(latLng)
-                .title("You are here!");
-        marker = mMap.addMarker(options);
-        mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        marker.showInfoWindow();
+            MarkerOptions options = new MarkerOptions()
+                    .position(latLng)
+                    .title("You are here!");
+            marker = mMap.addMarker(options);
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+            marker.showInfoWindow();
+        }
+        else
+            Toast.makeText(getApplicationContext(), "Location services not enabled", Toast.LENGTH_LONG).show();
     }
 
     public void NavigateToMarker()
     {
-        LatLng DestLoc = currentMarker.getPosition();
-        //LatLng DestLoc = new LatLng(-37.810374, 144.976368);
+        if (LocationServicesEnabled) {
+            LatLng DestLoc = currentMarker.getPosition();
 
-        final Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("http://maps.google.com/maps?"+
-                        "saddr="
-                        + myLocation.getLatitude() + "," + myLocation.getLongitude() +
-                        "&daddr="
-                        + DestLoc.latitude + "," + DestLoc.longitude));
-        intent.setClassName("com.google.android.apps.maps",
-                "com.google.android.maps.MapsActivity");
-        startActivity(intent);
-
+            final Intent intent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://maps.google.com/maps?"+
+                            "saddr="
+                            + myLocation.getLatitude() + "," + myLocation.getLongitude() +
+                            "&daddr="
+                            + DestLoc.latitude + "," + DestLoc.longitude));
+            intent.setClassName("com.google.android.apps.maps",
+                    "com.google.android.maps.MapsActivity");
+            startActivity(intent);
+        }
+        else
+                Toast.makeText(getApplicationContext(), "Location services not enabled", Toast.LENGTH_LONG).show();
     }
+
+
 
     ////////////////////////////////////////
     //
@@ -480,7 +526,14 @@ public class MapsActivity extends FragmentActivity
             scrollView.smoothScrollTo(0, 0);
 
             //hide actionbar
-            getActionBar().hide();
+            try {
+                assert getActionBar() != null;
+                getActionBar().hide();
+            }
+            catch (Exception e)
+            {
+                Log.i(TAG, String.valueOf(e));
+            }
 
             //Change expand / collapse text
             TextView textView = (TextView)findViewById(R.id.buttonExpand);
@@ -496,7 +549,7 @@ public class MapsActivity extends FragmentActivity
             }, 100);
 
             //show guide message for POI slider
-            if (POI_hintForBack == true) {
+            if (POI_hintForBack) {
                 POI_hintForBack = false;
                 Context context = getApplicationContext();
                 CharSequence text = "Press 'Back' to return to map";
@@ -513,7 +566,14 @@ public class MapsActivity extends FragmentActivity
             slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
 
             //show actionbar
-            getActionBar().show();
+            try {
+                assert getActionBar() != null;
+                getActionBar().show();
+            }
+            catch (Exception e)
+            {
+                Log.i(TAG, String.valueOf(e));
+            }
 
             //Change expand / collapse text
             TextView textView = (TextView)findViewById(R.id.buttonExpand);
@@ -550,7 +610,13 @@ public class MapsActivity extends FragmentActivity
             String imageName = source.substring(0, source.indexOf('.'));
             int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
 
-            Drawable d = getResources().getDrawable(resID);
+            Drawable d;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                d = getResources().getDrawable(resID, getApplicationContext().getTheme());
+            } else {
+                d = getResources().getDrawable(resID);
+            }
+
             d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
             return d;
         }
@@ -604,7 +670,19 @@ public class MapsActivity extends FragmentActivity
         if (mLayout != null &&
                 (mLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED || mLayout.getPanelState() == SlidingUpPanelLayout.PanelState.ANCHORED))
         {
+            //Collapse the SlidingPanel
             mLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+
+            //show actionbar
+            try {
+                assert getActionBar() != null;
+                getActionBar().show();
+            }
+            catch (Exception e)
+            {
+                Log.i(TAG, String.valueOf(e));
+            }
+
             //Change expand / collapse text
             TextView textView = (TextView)findViewById(R.id.buttonExpand);
             textView.setText("View");
