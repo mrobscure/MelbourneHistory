@@ -4,6 +4,6 @@
         android:title="@string/action_credits"
         android:icon="@drawable/ic_info_white_24dp"
         android:orderInCategory="100"
-        android:showAsAction="always" />
+        android:showAsAction="never" />
 
 </menu>

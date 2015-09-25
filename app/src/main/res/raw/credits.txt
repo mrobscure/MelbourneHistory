@@ -1,6 +1,17 @@
---------
-Credits:
---------
+Melbourne History Android App
+Deakin University (c)2015
+Release v1.0
+
+
+Deakin SIT382 - Team One:
+
+Matthew Arthur - Software Design and Development
+Towsib Ali - Content Development and Team Lead
+Silence Luo - Software Engineering and Documentation
+
+
+
+Licensing Credits:
 
 Map Pin Icon template:  http://www.iconarchive.com/show/vista-map-markers-icons-by-icons-land/Map-Marker-Board-Pink-icon.html (Linkback for license: http://www.icons-land.com)
 

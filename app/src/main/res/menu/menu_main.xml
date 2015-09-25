@@ -13,6 +13,6 @@
     <item android:id="@+id/action_info"
         android:icon="@drawable/ic_info_white_24dp"
         android:title="@string/action_info"
-        android:showAsAction="always"  />
+        android:showAsAction="never"  />
 
 </menu>
