@@ -1,43 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <POICatalogue>
   <POI>
-    <DisplayName>Melbourne Town Hall</DisplayName>
-    <ListDesc>A must see for architecture fans</ListDesc>
-    <Icon>townhall_icon</Icon>
-    <ListLogo>townhall_logo</ListLogo>
-    <Html>townhall_html</Html>
-    <Coord lon="144.9667106" lat="-37.8150496"/>
+    <DisplayName>Arts Centre Melbourne</DisplayName>
+    <ListDesc>Australia's leading and busiest performing arts centre </ListDesc>
+    <Icon>artscentre_icon</Icon>
+    <ListLogo>artscentre_logo</ListLogo>
+    <Html>artscentre_html</Html>
+    <Coord lon="144.968561" lat="-37.821332"/>
   </POI>
-  <POI>
-    <DisplayName>Royal Exhibition Building</DisplayName>
-    <ListDesc>Used for the world fair of 1880</ListDesc>
-    <Icon>rylexbldg_icon</Icon>
-    <ListLogo>rylexbldg_logo</ListLogo>
-    <Html>rylexbldg_html</Html>
-    <Coord lon="144.972271" lat="-37.804843"/>
-  </POI>
-  <POI>
-    <DisplayName>Queen Victoria Market</DisplayName>
-    <ListDesc>Home to fresh food and clothes</ListDesc>
-    <Icon>vicmarket_icon</Icon>
-    <ListLogo>vicmarket_logo</ListLogo>
-    <Html>vicmarket_html</Html>
-    <Coord lon="144.956950" lat="-37.809181"/>
-  </POI>
-  <POI>
-    <DisplayName>St Patricks Cathedral</DisplayName>
-    <ListDesc>One of the largest churches in Australia</ListDesc>
-    <Icon>stpats_icon</Icon>
-    <ListLogo>stpats_logo</ListLogo>
-    <Html>stpats_html</Html>
-    <Coord lon="144.976368" lat="-37.810374"/>
-  </POI>
-  <POI>
-    <DisplayName>Flinders St Station</DisplayName>
-    <ListDesc>A world renowned railway station icon</ListDesc>
-    <Icon>flindersst_icon</Icon>
-    <ListLogo>flindersst_logo</ListLogo>
-    <Html>flindersst_html</Html>
-    <Coord lon="144.9676667" lat="-37.818235"/>
-  </POI>
+    <POI>
+    <DisplayName>ChinaTown</DisplayName>
+    <ListDesc>Another landmark site of Melbourne that depicts the Chinese Settlements </ListDesc>
+    <Icon>chinatown_icon</Icon>
+    <ListLogo>chinatown_logo</ListLogo>
+    <Html>chinatown_html</Html>
+    <Coord lon="144.966999" lat="-37.812006"/>
+    </POI>
+    <POI>
+        <DisplayName>Cooks Cottage</DisplayName>
+        <ListDesc>Traditional landmark positioned in the attractive Fitzroy Gardens </ListDesc>
+        <Icon>cook_icon</Icon>
+        <ListLogo>cook_logo</ListLogo>
+        <Html>cookscottage_html</Html>
+        <Coord lon="144.979399" lat="-37.814305"/>
+    </POI>
+    <POI>
+        <DisplayName>Crown Entertainment Complex</DisplayName>
+        <ListDesc>Defining landmark of Melbourne CBD.</ListDesc>
+        <Icon>crown_icon</Icon>
+        <ListLogo>crown_logo</ListLogo>
+        <Html>crown_html</Html>
+        <Coord lon="144.979399" lat="-37.814305"/>
+    </POI>
+    <POI>
+        <DisplayName>Docklands Melbourne</DisplayName>
+        <ListDesc>Sports, Fine Dining Restaurants, Events.</ListDesc>
+        <Icon>docklands_icon</Icon>
+        <ListLogo>docklands_logo</ListLogo>
+        <Html>docklands_html</Html>
+        <Coord lon="144.945658" lat="-37.814887"/>
+    </POI>
+    <POI>
+        <DisplayName>Eureka SkyDeck</DisplayName>
+        <ListDesc>Tallest Observation Tower in the Southern Hamisphere.</ListDesc>
+        <Icon>eureka_icon</Icon>
+        <ListLogo>eureka_logo</ListLogo>
+        <Html>eureka_html</Html>
+        <Coord lon="144.964613" lat="-37.821364"/>
+    </POI>
+    <POI>
+        <DisplayName>Federation Square</DisplayName>
+        <ListDesc>Heart and Soul of Melbourne.</ListDesc>
+        <Icon>fedsquare_icon</Icon>
+        <ListLogo>fedsquare_logo</ListLogo>
+        <Html>fedsquare_html</Html>
+        <Coord lon="144.969036" lat="-37.817746"/>
+    </POI>
+    <POI>
+        <DisplayName>Flinders St Station</DisplayName>
+        <ListDesc>A world renowned railway station icon</ListDesc>
+        <Icon>flinderss_icon</Icon>
+        <ListLogo>flinderss_logo</ListLogo>
+        <Html>flinderss_html</Html>
+        <Coord lon="144.9676667" lat="-37.818235"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Immigration Museum</DisplayName>
+        <ListDesc>Australian immigration history.</ListDesc>
+        <Icon>immimuseum_icon</Icon>
+        <ListLogo>immimuseum_logo</ListLogo>
+        <Html>immimuseum_html</Html>
+        <Coord lon="144.960333" lat="-37.818873"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Convention and Exhibition Centre</DisplayName>
+        <ListDesc>Meetings and Conference Centre.</ListDesc>
+        <Icon>mcec_icon</Icon>
+        <ListLogo>mcec_logo</ListLogo>
+        <Html>mcec_html</Html>
+        <Coord lon="144.954120" lat="144.954120"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Cricket Ground</DisplayName>
+        <ListDesc>Melbourne Cricket Ground and Sports Museum.</ListDesc>
+        <Icon>mcg_icon</Icon>
+        <ListLogo>mcg_logo</ListLogo>
+        <Html>mcg_html</Html>
+        <Coord lon="144.983396" lat="-37.819708"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Central</DisplayName>
+        <ListDesc>Iconic landmark of the Melbourne CBD</ListDesc>
+        <Icon>melb_icon</Icon>
+        <ListLogo>melb_logo</ListLogo>
+        <Html>melbcentral_html</Html>
+        <Coord lon="144.962786" lat="-37.810305"/>
+    </POI>
+    <POI>
+        <DisplayName>Sea Life at Melbourne Aquarium</DisplayName>
+        <ListDesc>Australia's largest Saltwater Crocodile </ListDesc>
+        <Icon>sealife_icon</Icon>
+        <ListLogo>sealife_logo</ListLogo>
+        <Html>melbourneaquarium_html</Html>
+        <Coord lon="144.958277" lat="-37.820894"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Museum</DisplayName>
+        <ListDesc>Culture and History of Melbourne</ListDesc>
+        <Icon>melbournemuseum_icon</Icon>
+        <ListLogo>melbournemuseum_logo</ListLogo>
+        <Html>melbournemusuem_html</Html>
+        <Coord lon="144.972975" lat="-37.803370"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Star</DisplayName>
+        <ListDesc>Massive Wheel located in Melbourne CBD</ListDesc>
+        <Icon>mstar_icon</Icon>
+        <ListLogo>mstar_logo</ListLogo>
+        <Html>melbournestar_html</Html>
+        <Coord lon="144.937439" lat="-37.811658"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Town Hall</DisplayName>
+        <ListDesc>A must see for architecture fans</ListDesc>
+        <Icon>melbourneth_icon</Icon>
+        <ListLogo>melbourneth_logo</ListLogo>
+        <Html>melbourneth_html</Html>
+        <Coord lon="144.9667106" lat="-37.8150496"/>
+    </POI>
+    <POI>
+        <DisplayName>University of Melbourne</DisplayName>
+        <ListDesc>Oldest University of Victoria</ListDesc>
+        <Icon>unimelbourne_icon</Icon>
+        <ListLogo>unimelbourne_logo</ListLogo>
+        <Html>melbourneuni_html</Html>
+        <Coord lon="144.961218" lat="-37.795641"/>
+    </POI>
+    <POI>
+        <DisplayName>Melbourne Zoo</DisplayName>
+        <ListDesc>One of the biggest zoos of Australia</ListDesc>
+        <Icon>melbournezoo_icon</Icon>
+        <ListLogo>melbournezoo_logo</ListLogo>
+        <Html>melbournezoo_html</Html>
+        <Coord lon="144.951526" lat="-37.783927"/>
+    </POI>
+    <POI>
+        <DisplayName>National Gallery of Victoria</DisplayName>
+        <ListDesc>Ancient And Renowned Public Art Museum. </ListDesc>
+        <Icon>ngv_icon</Icon>
+        <ListLogo>ngv_logo</ListLogo>
+        <Html>ngv_html</Html>
+        <Coord lon="144.968885" lat="-37.822344"/>
+    </POI>
+    <POI>
+        <DisplayName>Old Melbourne Gaol</DisplayName>
+        <ListDesc>Ancient Prison in Melbourne CBD. </ListDesc>
+        <Icon>gaol_icon</Icon>
+        <ListLogo>gaol_logo</ListLogo>
+        <Html>oldmelbournegaol_html</Html>
+        <Coord lon="144.965179" lat="-37.807614"/>
+    </POI>
+    <POI>
+        <DisplayName>Old Treasury Building</DisplayName>
+        <ListDesc>Ancient Governer House in Melbourne CBD. </ListDesc>
+        <Icon>oldtreasury_icon</Icon>
+        <ListLogo>oldtreasury_logo</ListLogo>
+        <Html>oldtreasury_html</Html>
+        <Coord lon="144.974223" lat="-37.812966"/>
+    </POI>
+    <POI>
+        <DisplayName>The Parliament of Victoria</DisplayName>
+        <ListDesc>One of the Ancient Building of Melbourne CBD.</ListDesc>
+        <Icon>parliament_icon</Icon>
+        <ListLogo>parliament_logo</ListLogo>
+        <Html>parliament_html</Html>
+        <Coord lon="144.973826" lat="-37.810856"/>
+    </POI>
+    <POI>
+        <DisplayName>Rialto Towers</DisplayName>
+        <ListDesc>Tallest office building in the Southern hemisphere.</ListDesc>
+        <Icon>rialto_icon</Icon>
+        <ListLogo>rialto_logo</ListLogo>
+        <Html>rialto_html</Html>
+        <Coord lon="144.957460" lat="-37.818520"/>
+    </POI>
+    <POI>
+        <DisplayName>Royal Botanical Gardens Melbourne</DisplayName>
+        <ListDesc>One of the major landmarks of Melbourne.</ListDesc>
+        <Icon>royalbg_icon</Icon>
+        <ListLogo>royalbg_logo</ListLogo>
+        <Html>royalbg_html</Html>
+        <Coord lon="144.979606" lat="-37.830373"/>
+    </POI>
+    <POI>
+        <DisplayName>Royal Exhibition Building</DisplayName>
+        <ListDesc>Used for the world fair of 1880</ListDesc>
+        <Icon>rylexbldg_icon</Icon>
+        <ListLogo>rylexbldg_logo</ListLogo>
+        <Html>rylexbldg_html</Html>
+        <Coord lon="144.972271" lat="-37.804843"/>
+    </POI>
+    <POI>
+        <DisplayName>Shrine of Remembrance</DisplayName>
+        <ListDesc>Shrine for hundreds of thousands of Fallen soliders</ListDesc>
+        <Icon>shrine_icon</Icon>
+        <ListLogo>shrine_logo</ListLogo>
+        <Html>shrine_html</Html>
+        <Coord lon="144.973220" lat="-37.830399"/>
+    </POI>
+    <POI>
+        <DisplayName>State Library of Victoria</DisplayName>
+        <ListDesc>Central Library of the State of Victoria</ListDesc>
+        <Icon>statelib_icon</Icon>
+        <ListLogo>statelib_icon</ListLogo>
+        <Html>statelibrary_html</Html>
+        <Coord lon="144.973220" lat="-37.830399"/>
+    </POI>
+    <POI>
+        <DisplayName>St Pauls Cathedral</DisplayName>
+        <ListDesc>One of the largest churches in Australia</ListDesc>
+        <Icon>stpats_icon</Icon>
+        <ListLogo>stpats_logo</ListLogo>
+        <Html>stpauls_html</Html>
+        <Coord lon="144.976368" lat="-37.810374"/>
+    </POI>
+    <POI>
+        <DisplayName>Street Art of Melbourne.</DisplayName>
+        <ListDesc>Central Library of the State of Victoria</ListDesc>
+        <Icon>streetart_icon</Icon>
+        <ListLogo>streetart_logo</ListLogo>
+        <Html>streetart_html</Html>
+        <Coord lon="144.965522" lat="-37.809448"/>
+    </POI>
+    <POI>
+        <DisplayName>Queen Victoria Market</DisplayName>
+        <ListDesc>Home to fresh food and clothes</ListDesc>
+        <Icon>vicmarket_icon</Icon>
+        <ListLogo>vicmarket_logo</ListLogo>
+        <Html>vicmarket_html</Html>
+        <Coord lon="144.956950" lat="-37.809181"/>
+    </POI>
+    <POI>
+        <DisplayName>Yarra River</DisplayName>
+        <ListDesc>Key source of water and transport for the Melbournians</ListDesc>
+        <Icon>yarrariver_icon</Icon>
+        <ListLogo>yarrariver_logo</ListLogo>
+        <Html>yarra_html</Html>
+        <Coord lon="144.964994" lat="-37.819876"/>
+    </POI>
 </POICatalogue>
