@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <POICatalogue>
-  <POI>
-    <DisplayName>Arts Centre Melbourne</DisplayName>
-    <ListDesc>Australia's leading and busiest performing arts centre </ListDesc>
-    <Icon>artscentre_icon</Icon>
-    <ListLogo>artscentre_logo</ListLogo>
-    <Html>artscentre_html</Html>
-    <Coord lon="144.968561" lat="-37.821332"/>
-  </POI>
     <POI>
-    <DisplayName>ChinaTown</DisplayName>
-    <ListDesc>Another landmark site of Melbourne that depicts the Chinese Settlements </ListDesc>
-    <Icon>chinatown_icon</Icon>
-    <ListLogo>chinatown_logo</ListLogo>
-    <Html>chinatown_html</Html>
-    <Coord lon="144.966999" lat="-37.812006"/>
+        <DisplayName>Arts Centre Melbourne</DisplayName>
+        <ListDesc>Australia's leading and busiest performing arts centre </ListDesc>
+        <Icon>artscentre_icon</Icon>
+        <ListLogo>artscentre_logo</ListLogo>
+        <Html>artscentre_html</Html>
+        <Coord lon="144.968561" lat="-37.821332"/>
+    </POI>
+    <POI>
+        <DisplayName>ChinaTown</DisplayName>
+        <ListDesc>Another landmark site of Melbourne that depicts the Chinese Settlements </ListDesc>
+        <Icon>chinatown_icon</Icon>
+        <ListLogo>chinatown_logo</ListLogo>
+        <Html>chinatown_html</Html>
+        <Coord lon="144.966999" lat="-37.812006"/>
     </POI>
     <POI>
         <DisplayName>Cooks Cottage</DisplayName>
         <ListDesc>Traditional landmark positioned in the attractive Fitzroy Gardens </ListDesc>
         <Icon>cook_icon</Icon>
         <ListLogo>cook_logo</ListLogo>
-        <Html>cookscottage_html</Html>
+        <Html>cook_html</Html>
         <Coord lon="144.979399" lat="-37.814305"/>
     </POI>
     <POI>
@@ -93,7 +93,7 @@
         <ListDesc>Iconic landmark of the Melbourne CBD</ListDesc>
         <Icon>melb_icon</Icon>
         <ListLogo>melb_logo</ListLogo>
-        <Html>melbcentral_html</Html>
+        <Html>melb_html</Html>
         <Coord lon="144.962786" lat="-37.810305"/>
     </POI>
     <POI>
@@ -101,7 +101,7 @@
         <ListDesc>Australia's largest Saltwater Crocodile </ListDesc>
         <Icon>sealife_icon</Icon>
         <ListLogo>sealife_logo</ListLogo>
-        <Html>melbourneaquarium_html</Html>
+        <Html>sealife_html</Html>
         <Coord lon="144.958277" lat="-37.820894"/>
     </POI>
     <POI>
@@ -117,7 +117,7 @@
         <ListDesc>Massive Wheel located in Melbourne CBD</ListDesc>
         <Icon>mstar_icon</Icon>
         <ListLogo>mstar_logo</ListLogo>
-        <Html>melbournestar_html</Html>
+        <Html>mstar_html</Html>
         <Coord lon="144.937439" lat="-37.811658"/>
     </POI>
     <POI>
@@ -133,7 +133,7 @@
         <ListDesc>Oldest University of Victoria</ListDesc>
         <Icon>unimelbourne_icon</Icon>
         <ListLogo>unimelbourne_logo</ListLogo>
-        <Html>melbourneuni_html</Html>
+        <Html>unimelbourne_html</Html>
         <Coord lon="144.961218" lat="-37.795641"/>
     </POI>
     <POI>
@@ -157,7 +157,7 @@
         <ListDesc>Ancient Prison in Melbourne CBD. </ListDesc>
         <Icon>gaol_icon</Icon>
         <ListLogo>gaol_logo</ListLogo>
-        <Html>oldmelbournegaol_html</Html>
+        <Html>gaol_html</Html>
         <Coord lon="144.965179" lat="-37.807614"/>
     </POI>
     <POI>
@@ -212,8 +212,8 @@
         <DisplayName>State Library of Victoria</DisplayName>
         <ListDesc>Central Library of the State of Victoria</ListDesc>
         <Icon>statelib_icon</Icon>
-        <ListLogo>statelib_icon</ListLogo>
-        <Html>statelibrary_html</Html>
+        <ListLogo>statelib_logo</ListLogo>
+        <Html>statelib_html</Html>
         <Coord lon="144.973220" lat="-37.830399"/>
     </POI>
     <POI>
@@ -221,7 +221,7 @@
         <ListDesc>One of the largest churches in Australia</ListDesc>
         <Icon>stpats_icon</Icon>
         <ListLogo>stpats_logo</ListLogo>
-        <Html>stpauls_html</Html>
+        <Html>stpats_html</Html>
         <Coord lon="144.976368" lat="-37.810374"/>
     </POI>
     <POI>
@@ -245,7 +245,7 @@
         <ListDesc>Key source of water and transport for the Melbournians</ListDesc>
         <Icon>yarrariver_icon</Icon>
         <ListLogo>yarrariver_logo</ListLogo>
-        <Html>yarra_html</Html>
+        <Html>yarrariver_html</Html>
         <Coord lon="144.964994" lat="-37.819876"/>
     </POI>
 </POICatalogue>
