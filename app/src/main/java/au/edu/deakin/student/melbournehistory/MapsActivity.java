@@ -1,8 +1,13 @@
 package au.edu.deakin.student.melbournehistory;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.IntentSender;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -10,7 +15,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
@@ -605,7 +612,7 @@ public class MapsActivity extends FragmentActivity
     //Find HTML image by name and return a drawable object - inserts images into POI display
     private class ImageGetter implements Html.ImageGetter {
 
-        public Drawable getDrawable(String source)
+       /* public Drawable getDrawable(String source)
         {
             String imageName = source.substring(0, source.indexOf('.'));
             int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
@@ -619,6 +626,74 @@ public class MapsActivity extends FragmentActivity
 
             d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
             return d;
+        }
+*/
+
+        public Drawable getDrawable(String source) {
+
+            //Get device dimensions
+            DisplayMetrics displaymetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+            int screenWidth = displaymetrics.widthPixels;//int screenHeight = displaymetrics.heightPixels;
+
+            //convert image name to resource id
+            String imageName = source.substring(0, source.indexOf('.'));
+            int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
+
+            //load
+            BitmapDrawable bd;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                bd = (BitmapDrawable) getResources().getDrawable(resID, getApplicationContext().getTheme());
+            } else {
+                bd = (BitmapDrawable) getResources().getDrawable(resID);
+            }
+
+            double imageHeight = bd.getBitmap().getHeight();
+            double imageWidth = bd.getBitmap().getWidth();
+
+            double ratio = screenWidth / imageWidth;
+            int newImageHeight = (int) (imageHeight * ratio);
+
+
+
+            Bitmap bMap = BitmapFactory.decodeResource(getResources(), resID);
+
+            //Drawable drawable = new BitmapDrawable(getResources(), getResizedBitmap(bMap, newImageHeight, screenWidth));
+            Drawable drawable = new BitmapDrawable(getResources(), bMap);
+
+            Drawable d = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                d = getResources().getDrawable(resID, getApplicationContext().getTheme());}
+            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+
+
+
+            //return drawable;
+            return d;
+        }
+
+
+        /************************
+         * Resize Bitmap
+         *********************************/
+        public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
+
+            int width = bm.getWidth();
+            int height = bm.getHeight();
+
+            float scaleWidth = ((float) newWidth) / width;
+            float scaleHeight = ((float) newHeight) / height;
+
+            // create a matrix for the manipulation
+            Matrix matrix = new Matrix();
+
+            // resize the bit map
+            matrix.postScale(scaleWidth, scaleHeight);
+
+            // recreate the new Bitmap
+            Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
+
+            return resizedBitmap;
         }
     }
 
