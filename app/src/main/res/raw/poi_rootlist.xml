@@ -78,7 +78,7 @@
         <Icon>mcec_icon</Icon>
         <ListLogo>mcec_logo</ListLogo>
         <Html>mcec_html</Html>
-        <Coord lon="144.954120" lat="144.954120"/>
+        <Coord lon="144.9521137" lat="-37.8254522"/>
     </POI>
     <POI>
         <DisplayName>Melbourne Cricket Ground</DisplayName>
@@ -214,7 +214,7 @@
         <Icon>statelib_icon</Icon>
         <ListLogo>statelib_logo</ListLogo>
         <Html>statelib_html</Html>
-        <Coord lon="144.973220" lat="-37.830399"/>
+        <Coord lon="144.9651897" lat="-37.8098087"/>
     </POI>
     <POI>
         <DisplayName>St Pauls Cathedral</DisplayName>
@@ -230,7 +230,7 @@
         <Icon>streetart_icon</Icon>
         <ListLogo>streetart_logo</ListLogo>
         <Html>streetart_html</Html>
-        <Coord lon="144.965522" lat="-37.809448"/>
+        <Coord lon="144.965879" lat="-37.8092079"/>
     </POI>
     <POI>
         <DisplayName>Queen Victoria Market</DisplayName>
