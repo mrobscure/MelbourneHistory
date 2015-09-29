@@ -3,9 +3,12 @@ package au.edu.deakin.student.melbournehistory;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ScaleDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +43,7 @@ public class POIListActivity extends ListActivity {
     private ArrayList<String> POI_Html = new ArrayList<String>();
     private IconicAdapter myAdapter;
     private SlidingUpPanelLayout mLayout;
+    int screenWidth;
 
     ////////////////////////////////////////
     //
@@ -91,6 +95,11 @@ public class POIListActivity extends ListActivity {
             }
         });
 
+        //Get device dimensions
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        screenWidth = displaymetrics.widthPixels;
+        //load and display POIs
         prepare_POI();
     }
 
@@ -353,15 +362,26 @@ public class POIListActivity extends ListActivity {
     //Find HTML image by name and return a drawable object - inserts images into POI display
     private class ImageGetter implements Html.ImageGetter {
 
-        public Drawable getDrawable(String source)
-        {
+        public Drawable getDrawable(String source) {
+            //convert image name to resource id
             String imageName = source.substring(0, source.indexOf('.'));
             int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
 
-            Drawable d = getResources().getDrawable(resID);
-            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-            return d;
+            Drawable d = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                d = getResources().getDrawable(resID, getApplicationContext().getTheme());
+            } else {
+                d = getResources().getDrawable(resID);
+            }
+            float ratio = (float) screenWidth / (float) d.getIntrinsicWidth();
+
+            d.setBounds(0, 0, (int) (d.getIntrinsicWidth() * ratio), (int) (d.getIntrinsicHeight() * ratio));
+            ScaleDrawable sd = new ScaleDrawable(d, 0, 1.0f, 1.0f);
+            sd.setLevel(10000);
+
+            return sd.getDrawable();
         }
+
     }
 
 

@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ScaleDrawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -81,6 +82,8 @@ public class MapsActivity extends FragmentActivity
     private SlidingUpPanelLayout mLayout;
     boolean LocationServicesEnabled = false;
     private static final String POI_LISTFILE = "poi_rootlist";
+    int screenWidth;
+
 
 
     ////////////////////////////////////////
@@ -107,8 +110,13 @@ public class MapsActivity extends FragmentActivity
                 .setInterval(10 * 1000)        // 10 seconds, in milliseconds
                 .setFastestInterval(1000); // 1 second, in milliseconds
 
+        //Get device dimensions
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        screenWidth = displaymetrics.widthPixels;
         //load and display POIs
         prepare_POI();
+
 
         //slidepanel related
         slidingLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
@@ -612,89 +620,26 @@ public class MapsActivity extends FragmentActivity
     //Find HTML image by name and return a drawable object - inserts images into POI display
     private class ImageGetter implements Html.ImageGetter {
 
-       /* public Drawable getDrawable(String source)
-        {
+        public Drawable getDrawable(String source) {
+            //convert image name to resource id
             String imageName = source.substring(0, source.indexOf('.'));
             int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
 
-            Drawable d;
+            Drawable d = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 d = getResources().getDrawable(resID, getApplicationContext().getTheme());
             } else {
                 d = getResources().getDrawable(resID);
             }
+            float ratio = (float) screenWidth / (float) d.getIntrinsicWidth();
 
-            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-            return d;
-        }
-*/
+            d.setBounds(0, 0, (int) (d.getIntrinsicWidth() * ratio), (int) (d.getIntrinsicHeight() * ratio));
+            ScaleDrawable sd = new ScaleDrawable(d, 0, 1.0f, 1.0f);
+            sd.setLevel(10000);
 
-        public Drawable getDrawable(String source) {
-
-            //Get device dimensions
-            DisplayMetrics displaymetrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-            int screenWidth = displaymetrics.widthPixels;//int screenHeight = displaymetrics.heightPixels;
-
-            //convert image name to resource id
-            String imageName = source.substring(0, source.indexOf('.'));
-            int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
-
-            //load
-            BitmapDrawable bd;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                bd = (BitmapDrawable) getResources().getDrawable(resID, getApplicationContext().getTheme());
-            } else {
-                bd = (BitmapDrawable) getResources().getDrawable(resID);
-            }
-
-            double imageHeight = bd.getBitmap().getHeight();
-            double imageWidth = bd.getBitmap().getWidth();
-
-            double ratio = screenWidth / imageWidth;
-            int newImageHeight = (int) (imageHeight * ratio);
-
-
-
-            Bitmap bMap = BitmapFactory.decodeResource(getResources(), resID);
-
-            //Drawable drawable = new BitmapDrawable(getResources(), getResizedBitmap(bMap, newImageHeight, screenWidth));
-            Drawable drawable = new BitmapDrawable(getResources(), bMap);
-
-            Drawable d = null;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                d = getResources().getDrawable(resID, getApplicationContext().getTheme());}
-            d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-
-
-
-            //return drawable;
-            return d;
+            return sd.getDrawable();
         }
 
-
-        /************************
-         * Resize Bitmap
-         *********************************/
-        public Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
-
-            int width = bm.getWidth();
-            int height = bm.getHeight();
-
-            float scaleWidth = ((float) newWidth) / width;
-            float scaleHeight = ((float) newHeight) / height;
-
-            // create a matrix for the manipulation
-            Matrix matrix = new Matrix();
-
-            // resize the bit map
-            matrix.postScale(scaleWidth, scaleHeight);
-
-            // recreate the new Bitmap
-            Bitmap resizedBitmap = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, false);
-
-            return resizedBitmap;
-        }
     }
 
 

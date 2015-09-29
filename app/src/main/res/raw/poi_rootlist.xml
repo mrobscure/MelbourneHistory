@@ -2,7 +2,7 @@
 <POICatalogue>
     <POI>
         <DisplayName>Arts Centre Melbourne</DisplayName>
-        <ListDesc>Australia's leading and busiest performing arts centre </ListDesc>
+        <ListDesc>Australia's leading and busiest performing arts centre</ListDesc>
         <Icon>artscentre_icon</Icon>
         <ListLogo>artscentre_logo</ListLogo>
         <Html>artscentre_html</Html>
@@ -10,7 +10,7 @@
     </POI>
     <POI>
         <DisplayName>ChinaTown</DisplayName>
-        <ListDesc>Another landmark site of Melbourne that depicts the Chinese Settlements </ListDesc>
+        <ListDesc>Another landmark site of Melbourne that depicts the Chinese Settlements</ListDesc>
         <Icon>chinatown_icon</Icon>
         <ListLogo>chinatown_logo</ListLogo>
         <Html>chinatown_html</Html>
@@ -18,23 +18,23 @@
     </POI>
     <POI>
         <DisplayName>Cooks Cottage</DisplayName>
-        <ListDesc>Traditional landmark positioned in the attractive Fitzroy Gardens </ListDesc>
+        <ListDesc>Traditional landmark positioned in the attractive Fitzroy Gardens</ListDesc>
         <Icon>cook_icon</Icon>
         <ListLogo>cook_logo</ListLogo>
         <Html>cook_html</Html>
         <Coord lon="144.979399" lat="-37.814305"/>
     </POI>
     <POI>
-        <DisplayName>Crown Entertainment Complex</DisplayName>
-        <ListDesc>Defining landmark of Melbourne CBD.</ListDesc>
+        <DisplayName>Crown Casino</DisplayName>
+        <ListDesc>Defining landmark of Melbourne CBD</ListDesc>
         <Icon>crown_icon</Icon>
         <ListLogo>crown_logo</ListLogo>
         <Html>crown_html</Html>
-        <Coord lon="144.979399" lat="-37.814305"/>
+        <Coord lon="144.9574052" lat="-37.8239718"/>
     </POI>
     <POI>
         <DisplayName>Docklands Melbourne</DisplayName>
-        <ListDesc>Sports, Fine Dining Restaurants, Events.</ListDesc>
+        <ListDesc>Sports, Fine Dining Restaurants, Events</ListDesc>
         <Icon>docklands_icon</Icon>
         <ListLogo>docklands_logo</ListLogo>
         <Html>docklands_html</Html>
@@ -42,7 +42,7 @@
     </POI>
     <POI>
         <DisplayName>Eureka SkyDeck</DisplayName>
-        <ListDesc>Tallest Observation Tower in the Southern Hamisphere.</ListDesc>
+        <ListDesc>Tallest Observation Tower in the Southern Hamisphere</ListDesc>
         <Icon>eureka_icon</Icon>
         <ListLogo>eureka_logo</ListLogo>
         <Html>eureka_html</Html>
@@ -50,7 +50,7 @@
     </POI>
     <POI>
         <DisplayName>Federation Square</DisplayName>
-        <ListDesc>Heart and Soul of Melbourne.</ListDesc>
+        <ListDesc>Heart and Soul of Melbourne</ListDesc>
         <Icon>fedsquare_icon</Icon>
         <ListLogo>fedsquare_logo</ListLogo>
         <Html>fedsquare_html</Html>
@@ -65,8 +65,8 @@
         <Coord lon="144.9676667" lat="-37.818235"/>
     </POI>
     <POI>
-        <DisplayName>Melbourne Immigration Museum</DisplayName>
-        <ListDesc>Australian immigration history.</ListDesc>
+        <DisplayName>Immigration Museum</DisplayName>
+        <ListDesc>Australian immigration history</ListDesc>
         <Icon>immimuseum_icon</Icon>
         <ListLogo>immimuseum_logo</ListLogo>
         <Html>immimuseum_html</Html>
@@ -74,7 +74,7 @@
     </POI>
     <POI>
         <DisplayName>Melbourne Convention and Exhibition Centre</DisplayName>
-        <ListDesc>Meetings and Conference Centre.</ListDesc>
+        <ListDesc>Meetings and Conference Centre</ListDesc>
         <Icon>mcec_icon</Icon>
         <ListLogo>mcec_logo</ListLogo>
         <Html>mcec_html</Html>
@@ -82,7 +82,7 @@
     </POI>
     <POI>
         <DisplayName>Melbourne Cricket Ground</DisplayName>
-        <ListDesc>Melbourne Cricket Ground and Sports Museum.</ListDesc>
+        <ListDesc>Melbourne Cricket Ground and Sports Museum</ListDesc>
         <Icon>mcg_icon</Icon>
         <ListLogo>mcg_logo</ListLogo>
         <Html>mcg_html</Html>
@@ -97,8 +97,8 @@
         <Coord lon="144.962786" lat="-37.810305"/>
     </POI>
     <POI>
-        <DisplayName>Sea Life at Melbourne Aquarium</DisplayName>
-        <ListDesc>Australia's largest Saltwater Crocodile </ListDesc>
+        <DisplayName>Melbourne Aquarium</DisplayName>
+        <ListDesc>Australia's largest Saltwater Crocodile</ListDesc>
         <Icon>sealife_icon</Icon>
         <ListLogo>sealife_logo</ListLogo>
         <Html>sealife_html</Html>
@@ -146,7 +146,7 @@
     </POI>
     <POI>
         <DisplayName>National Gallery of Victoria</DisplayName>
-        <ListDesc>Ancient And Renowned Public Art Museum. </ListDesc>
+        <ListDesc>Ancient And Renowned Public Art Museum</ListDesc>
         <Icon>ngv_icon</Icon>
         <ListLogo>ngv_logo</ListLogo>
         <Html>ngv_html</Html>
@@ -154,7 +154,7 @@
     </POI>
     <POI>
         <DisplayName>Old Melbourne Gaol</DisplayName>
-        <ListDesc>Ancient Prison in Melbourne CBD. </ListDesc>
+        <ListDesc>Ancient Prison in Melbourne CBD</ListDesc>
         <Icon>gaol_icon</Icon>
         <ListLogo>gaol_logo</ListLogo>
         <Html>gaol_html</Html>
@@ -162,7 +162,7 @@
     </POI>
     <POI>
         <DisplayName>Old Treasury Building</DisplayName>
-        <ListDesc>Ancient Governer House in Melbourne CBD. </ListDesc>
+        <ListDesc>Ancient Governer House in Melbourne CBD</ListDesc>
         <Icon>oldtreasury_icon</Icon>
         <ListLogo>oldtreasury_logo</ListLogo>
         <Html>oldtreasury_html</Html>
@@ -170,7 +170,7 @@
     </POI>
     <POI>
         <DisplayName>The Parliament of Victoria</DisplayName>
-        <ListDesc>One of the Ancient Building of Melbourne CBD.</ListDesc>
+        <ListDesc>One of the Ancient Building of Melbourne CBD</ListDesc>
         <Icon>parliament_icon</Icon>
         <ListLogo>parliament_logo</ListLogo>
         <Html>parliament_html</Html>
@@ -178,15 +178,15 @@
     </POI>
     <POI>
         <DisplayName>Rialto Towers</DisplayName>
-        <ListDesc>Tallest office building in the Southern hemisphere.</ListDesc>
+        <ListDesc>Tallest office building in the Southern hemisphere</ListDesc>
         <Icon>rialto_icon</Icon>
         <ListLogo>rialto_logo</ListLogo>
         <Html>rialto_html</Html>
         <Coord lon="144.957460" lat="-37.818520"/>
     </POI>
     <POI>
-        <DisplayName>Royal Botanical Gardens Melbourne</DisplayName>
-        <ListDesc>One of the major landmarks of Melbourne.</ListDesc>
+        <DisplayName>Royal Botanical Gardens</DisplayName>
+        <ListDesc>One of the major landmarks of Melbourne</ListDesc>
         <Icon>royalbg_icon</Icon>
         <ListLogo>royalbg_logo</ListLogo>
         <Html>royalbg_html</Html>
@@ -225,7 +225,7 @@
         <Coord lon="144.976368" lat="-37.810374"/>
     </POI>
     <POI>
-        <DisplayName>Street Art of Melbourne.</DisplayName>
+        <DisplayName>Street Art of Melbourne</DisplayName>
         <ListDesc>Central Library of the State of Victoria</ListDesc>
         <Icon>streetart_icon</Icon>
         <ListLogo>streetart_logo</ListLogo>
