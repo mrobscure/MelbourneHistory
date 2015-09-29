@@ -219,10 +219,10 @@
     <POI>
         <DisplayName>St Pauls Cathedral</DisplayName>
         <ListDesc>One of the largest churches in Australia</ListDesc>
-        <Icon>stpats_icon</Icon>
-        <ListLogo>stpats_logo</ListLogo>
-        <Html>stpats_html</Html>
-        <Coord lon="144.976368" lat="-37.810374"/>
+        <Icon>stpauls_icon</Icon>
+        <ListLogo>stpauls_logo</ListLogo>
+        <Html>stpauls_html</Html>
+        <Coord lon="144.967687" lat="-37.816770"/>
     </POI>
     <POI>
         <DisplayName>Street Art of Melbourne</DisplayName>
