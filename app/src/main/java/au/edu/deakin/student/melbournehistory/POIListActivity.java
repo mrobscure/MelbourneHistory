@@ -33,8 +33,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+////////////////////////////////////////
+//
+//  Handle the Listview activities
+//
+////////////////////////////////////////
+
 public class POIListActivity extends ListActivity {
 
+    //class wide variables
     private static final String POI_LISTFILE = "poi_rootlist";
     private SlidingUpPanelLayout SlidingLayout;
     private ArrayList<String> POI_Text = new ArrayList<String>();
@@ -69,6 +76,7 @@ public class POIListActivity extends ListActivity {
         //setListAdapter(myAdapter);
         setListAdapter(myAdapter);
         ListView lv = getListView();
+        //List Item Click
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -87,6 +95,7 @@ public class POIListActivity extends ListActivity {
             }
         });
 
+        //Grab the back button and handle it as we expect
         TextView ListPOI_BackButton = (TextView)findViewById(R.id.LbuttonBack);
         ListPOI_BackButton.setOnClickListener(new TextView.OnClickListener() {
             @Override
@@ -141,9 +150,11 @@ public class POIListActivity extends ListActivity {
     //
     ////////////////////////////////////////
 
+    // Load XML POI file and parse for POI's and related parameters
     private void prepare_POI()
     {
-        try {
+        try
+        {
             InputStream inputstream;
             XmlPullParserFactory xmlFactoryObject;
             int resID = getResources().getIdentifier(POI_LISTFILE, "raw", this.getPackageName());
@@ -160,8 +171,6 @@ public class POIListActivity extends ListActivity {
                 String val_Icon = "";
                 String val_Desc = "";
                 String val_Html = "";
-                double val_Coord_Lon = 0;
-                double val_Coord_Lat = 0;
                 boolean XMLelementMarker = false;
                 String name;
                 int event = myparser.getEventType();
@@ -198,7 +207,7 @@ public class POIListActivity extends ListActivity {
                                 XMLelementMarker = true;
                             } else {
                                 XMLelementMarker = false;
-                                //Add marker to map
+                                //Add marker to list
                                 if (!"".equals(val_DisplayName)) {
                                     POI_Text.add(val_DisplayName);
                                     POI_Desc.add(val_Desc);
@@ -222,7 +231,7 @@ public class POIListActivity extends ListActivity {
         }
     }
 
-
+    //Adapter to draw custom list items, whcih for us is an icon, POI name and brief description
     class IconicAdapter extends ArrayAdapter<String> {
 
         IconicAdapter() {
@@ -239,7 +248,12 @@ public class POIListActivity extends ListActivity {
             ImageView icon=(ImageView)row.findViewById(R.id.icon);
             String imageName = POI_Icon.get(position);
             int resID = getResources().getIdentifier(imageName, "raw", getPackageName());
-            Drawable d = getResources().getDrawable(resID);
+            Drawable d = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                d = getResources().getDrawable(resID, getApplicationContext().getTheme());
+            } else {
+                d = getResources().getDrawable(resID);
+            }
             icon.setImageDrawable(d);
 
             //Set Description
@@ -254,6 +268,7 @@ public class POIListActivity extends ListActivity {
         }
     }
 
+    //Listener for Sliding Panel events
     private SlidingUpPanelLayout.PanelSlideListener onSlideListener() {
         return new SlidingUpPanelLayout.PanelSlideListener() {
 
@@ -282,6 +297,7 @@ public class POIListActivity extends ListActivity {
         };
     }
 
+    //Handle events from when a user clicks a list item, to load the relevant content and slide the panel up or down
     private void onPOIExpButtonClick(String HTMLfileName)
     {
         if (SlidingLayout.getPanelState().equals(SlidingUpPanelLayout.PanelState.HIDDEN))
@@ -305,7 +321,7 @@ public class POIListActivity extends ListActivity {
             //hide actionbar
             getActionBar().hide();
 
-            // Execute some code after load has completed, rough but it works
+            // Delay panel slide for 100ms to wait for content to load
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
@@ -324,6 +340,7 @@ public class POIListActivity extends ListActivity {
         }
     }
 
+    //Grab the back button and handle it as we expect
     @Override
     public void onBackPressed() {
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
@@ -338,7 +355,7 @@ public class POIListActivity extends ListActivity {
         }
     }
 
-    //Load HTML file for POI
+    //Load HTML file for POI into a TextView
     public static String readRawTextFile(Context ctx, int resId)
     {
         InputStream inputStream = ctx.getResources().openRawResource(resId);
@@ -359,7 +376,7 @@ public class POIListActivity extends ListActivity {
         return text.toString();
     }
 
-    //Find HTML image by name and return a drawable object - inserts images into POI display
+    //Find HTML image by name and returns a resized-to-hardware drawable object - inserts images into POI display
     private class ImageGetter implements Html.ImageGetter {
 
         public Drawable getDrawable(String source) {
@@ -383,6 +400,5 @@ public class POIListActivity extends ListActivity {
         }
 
     }
-
 
 }

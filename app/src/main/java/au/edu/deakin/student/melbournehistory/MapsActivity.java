@@ -1,13 +1,8 @@
 package au.edu.deakin.student.melbournehistory;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.IntentSender;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.location.Location;
 import android.location.LocationManager;
@@ -57,6 +52,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
+
+////////////////////////////////////////
+//
+//  Handle the Map view activities
+//
+////////////////////////////////////////
 
 public class MapsActivity extends FragmentActivity
         implements  OnMapReadyCallback,
@@ -114,9 +115,6 @@ public class MapsActivity extends FragmentActivity
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         screenWidth = displaymetrics.widthPixels;
-        //load and display POIs
-        prepare_POI();
-
 
         //slidepanel related
         slidingLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
@@ -188,6 +186,7 @@ public class MapsActivity extends FragmentActivity
         startActivity(new Intent(this, CreditActivity.class));
     }
 
+    //Hides the System UI, provides more screen real estate
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -217,11 +216,9 @@ public class MapsActivity extends FragmentActivity
         //Load and show POI markers
         prepare_POI();
 
-        //Set camera to home location
+        //Set camera to home location - Move immediately not animate
         LatLng central = new LatLng(-37.810366, 144.962886);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(central, 14));
-
-        navigateHome();
 
         //set map listener - On Marker Click
         map.setOnMarkerClickListener(this);
@@ -244,14 +241,9 @@ public class MapsActivity extends FragmentActivity
                 }
             }
         });
-
-        //provide a how to Toast on map first show
-        WelcomeToast = Toast.makeText(getApplicationContext(), "Touch Point of Interest marker to view", Toast.LENGTH_LONG);
-        WelcomeToast.setGravity(Gravity.CENTER, 0, 0);
-        WelcomeToast.show();
     }
 
-    //maps - navigate to central map location over Melbourne CBD
+    //maps - navigate to central map location over Melbourne CBD - animate gently
     public void navigateHome()
     {
         LatLng central = new LatLng(-37.810366, 144.962886);
@@ -288,7 +280,7 @@ public class MapsActivity extends FragmentActivity
 
         //Centre Market in Map
         LatLng latLng = new LatLng(marker.getPosition().latitude, marker.getPosition().longitude);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
 
         //Make POI Title Bar Visible
         slidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
@@ -310,6 +302,7 @@ public class MapsActivity extends FragmentActivity
         return true;
     }
 
+    //For Location services
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -318,6 +311,7 @@ public class MapsActivity extends FragmentActivity
                 .build();
     }
 
+    //For Location services
     @Override
     public void onConnected(Bundle connectionHint) {
 
@@ -335,6 +329,7 @@ public class MapsActivity extends FragmentActivity
         }
     }
 
+    //For Location services
     public boolean LSStatusCheck()
     {
         final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
@@ -348,6 +343,7 @@ public class MapsActivity extends FragmentActivity
         }
     }
 
+    //For Location services
     private void buildAlertMessageNoGps() {
         WelcomeToast.cancel();
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -367,11 +363,13 @@ public class MapsActivity extends FragmentActivity
         alert.show();
     }
 
+    //For Location services
     @Override
     public void onConnectionSuspended(int i) {
         Log.i(TAG, "Location services suspended. Please reconnect.");
     }
 
+    //For Location services
     @Override
     public void onLocationChanged(Location location) {
         handleNewLocation(location);
@@ -383,6 +381,7 @@ public class MapsActivity extends FragmentActivity
         myLocation = location;
     }
 
+    //For Location services
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
         if (connectionResult.hasResolution()) {
@@ -397,6 +396,7 @@ public class MapsActivity extends FragmentActivity
         }
     }
 
+    //Animate to location of user
     public void navigateCurrentLocation()
     {
         if (LocationServicesEnabled) {
@@ -416,6 +416,7 @@ public class MapsActivity extends FragmentActivity
             Toast.makeText(getApplicationContext(), "Location services not enabled", Toast.LENGTH_LONG).show();
     }
 
+    //Start Navigation services to the selected marker
     public void NavigateToMarker()
     {
         if (LocationServicesEnabled) {
@@ -443,6 +444,7 @@ public class MapsActivity extends FragmentActivity
     //
     ////////////////////////////////////////
 
+    // Load XML POI file and parse for POI's and related parameters
     private void prepare_POI()
     {
         try {
@@ -522,6 +524,7 @@ public class MapsActivity extends FragmentActivity
         }
     }
 
+    //Handle events from when a user clicks a map item, to load the relevant content and slide the panel up or down
     private void onPOIExpButtonClick()
     {
         if (slidingLayout.getPanelState().equals(SlidingUpPanelLayout.PanelState.COLLAPSED))
@@ -684,6 +687,7 @@ public class MapsActivity extends FragmentActivity
         };
     }
 
+    //Grab the back button and handle it as we expect
     @Override
     public void onBackPressed() {
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);

@@ -13,6 +13,7 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        //Hook View by Map button to launch Map activity
         Button btnMap = (Button) findViewById(R.id.wbuttonMap);
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -21,6 +22,7 @@ public class WelcomeActivity extends Activity {
             }
         });
 
+        //Hook View by List button to launch List activity
         Button btnList = (Button) findViewById(R.id.wbuttonList);
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
